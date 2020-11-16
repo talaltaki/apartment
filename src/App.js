@@ -6,14 +6,20 @@ import Dashboard from "./Components/MainDashboard/Dashboard/Dashboard";
 import Home from "./Components/Home/Home";
 import LoginMain from "./Components/LoginMain/LoginMain";
 import HomeDetails from "./Components/HomeDetails/HomeDetails";
+import firebase from "firebase/app";
+import "firebase/auth";
+import { firebaseConfig } from "./Components/Login/firebase.config";
 
 export const AllContext = createContext();
 
+firebase.initializeApp(firebaseConfig);
+
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [name, setName] = useState("user");
 
   return (
-    <AllContext.Provider value={[user, setUser]}>
+    <AllContext.Provider value={[loggedIn, setLoggedIn, name, setName]}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
