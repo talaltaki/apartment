@@ -6,7 +6,7 @@ import Facebook from "./../../images/Group 2.png";
 import { AllContext } from "../../App";
 import firebase from "firebase/app";
 
-const Login = () => {
+const Login2 = () => {
   const [loggedIn, setLoggedIn, name, setName] = useContext(AllContext);
 
   const location = useLocation().location?.pathname;
@@ -21,7 +21,13 @@ const Login = () => {
 
   const [isSignedUp, setSignedUp] = useState(false);
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    isSignedIn: false,
+    name: "",
+    email: "",
+    photo: "",
+    uid: "",
+  });
 
   const [userSubmit, setUserSubmit] = useState("");
 
@@ -300,4 +306,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login2;
